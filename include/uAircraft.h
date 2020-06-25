@@ -1,20 +1,31 @@
 #pragma once
 
-#define POS int
+#define Pos int
 
 typedef enum
 {
-    North = 0,
-    Sourth,
-    East,
-    West
+    N = 0,
+    S,
+    E,
+    W
 }Direct;
 
-class uAircraft
+class Position 
 {
-    uAircraft():_x(0),_y(0),_z(0),_d(North){};
-    uAircraft(POS x, POS y, POS z, Direct d):_x(x),_y(y),_z(z),_d(d){};
+    public:
+    Position():x(0),y(0),z(0),d(N){}
     private:
-    POS _x, _y, _z;
-    Direct _d;
+    Pos x,y,z;
+    Direct d;
+};
+
+class UnmannedAircraft
+{
+    UnmannedAircraft()
+    {
+        Position *initp = new Position();
+        this->p = initp;
+    }
+    private:
+    Position *p;
 };
