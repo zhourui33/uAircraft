@@ -27,3 +27,27 @@ Aircraft初始位置为（0，0，0，N），表示在原点，朝北。
 ## 附加需求
 * 当Aircraft收到一系列组合指令时，能够一次完成响应的指令。
 * 例如：Aircraft位于(0,0,0,N),收到指令序列[UP_N(10),RIGHT,FORWARD_N(10),LEFT,FORWARD_N(5),ROUND],新的位置为(10,5,10,S)。
+
+### 需求一的测试用例
+
+    TEST(UnmannedAircraftTest, should_init_at_0_0_0_N)
+    {
+        UnmannedAircraft ua;
+        ASSERT_TRUE(Position(0,0,0,N) == ua.getPosition());
+    }
+
+    TEST(UnmannedAircraftTest, should_position_up_a_step_given_aircraft_at_origin)
+    {
+        ASSERT_TRUE(Position(0,0,1,N) == UnmannedAircraft().on(UP));
+    }
+
+    TEST(UnmannedAircraftTest, should_position_down_a_step_given_position_is_0_0_5_N)
+    {
+        UnmannedAircraft ua(Position(0,0,5,N));
+        ASSERT_TRUE(Position(0,0,4,N) == ua.on(DOWN));
+    }
+
+    TEST(UnmannedAircraftTest, should_position_forward_a_step_given_aircraft_at_origin)
+    {
+        ASSERT_TRUE(Position(0,1,0,N) == UnmannedAircraft().on(FORWARD));
+    } 

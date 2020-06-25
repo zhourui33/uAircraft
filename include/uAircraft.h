@@ -1,31 +1,32 @@
 #pragma once
 
-#define Pos int
+#include "pub.h"
+#include "position.h"
 
-typedef enum
-{
-    N = 0,
-    S,
-    E,
-    W
-}Direct;
-
-class Position 
+class Commander
 {
     public:
-    Position():x(0),y(0),z(0),d(N){}
-    private:
-    Pos x,y,z;
-    Direct d;
+    Commander(Position ipos):p(ipos){}
+    virtual void actionCommand(Command cmd) = 0;
+
+    protected:
+    Position p;
 };
 
 class UnmannedAircraft
 {
+    public:
     UnmannedAircraft()
     {
-        Position *initp = new Position();
-        this->p = initp;
+        this->p = Position();
     }
+    UnmannedAircraft(Position ipos):p(ipos){}
+    const Position& getPosition()
+    {
+        return this->p;
+    }
+    const Position& on(Command cmd);
+
     private:
-    Position *p;
+    Position p;
 };
