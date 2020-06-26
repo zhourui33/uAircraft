@@ -1,23 +1,23 @@
-#ifndef _PUB_H_
-#define _PUB_H_
+#ifndef _PUB_H_0626
+#define _PUB_H_0626
 
 #define SUCCESS 0
 #define FAILED 1
 
 #define Pos int
 
-typedef enum
-{
-    N = 0,
-    S,
-    E,
-    W
-}Direct;
+enum Direct{N, E, S, W};
+Direct operator++(Direct& d);
+Direct operator--(Direct& d);
 
-typedef enum
+enum Command
 {
     UP = 0,
     DOWN,
-    FORWARD
-}Command;
+    FORWARD,
+    LEFT,
+    RIGHT,
+    ROUND
+};
+
 #endif
