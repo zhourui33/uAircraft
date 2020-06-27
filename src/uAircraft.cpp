@@ -14,3 +14,29 @@ const Position& UnmannedAircraft::on(Command cmd)
     }
     return this->p;
 }
+
+const Position& UnmannedAircraft::on(Commander *cmd)
+{
+    cmd->action(this->p);
+    return this->p;
+}
+const Position& UnmannedAircraft::on(UP_N cmd)
+{
+    cmd.action(this->p);
+    return this->p;
+}
+const Position& UnmannedAircraft::on(DOWN_N cmd)
+{
+    cmd.action(this->p);
+    return this->p;
+}
+const Position& UnmannedAircraft::on(FORWARD_N cmd)
+{
+    cmd.action(this->p);
+    return this->p;
+}
+const Position& UnmannedAircraft::on(REPEAT cmd)
+{
+    cmd.action(this->p);
+    return this->p;
+}

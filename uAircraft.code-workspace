@@ -7,7 +7,27 @@
 	"settings": {
 		"files.associations": {
 			"cmath": "cpp",
-			"iostream": "cpp"
+			"iostream": "cpp",
+			"new": "cpp",
+			"*.tcc": "cpp",
+			"cassert": "cpp",
+			"exception": "cpp",
+			"algorithm": "cpp",
+			"functional": "cpp",
+			"fstream": "cpp",
+			"iosfwd": "cpp",
+			"istream": "cpp",
+			"limits": "cpp",
+			"ostream": "cpp",
+			"streambuf": "cpp",
+			"typeinfo": "cpp",
+			"atomic": "cpp",
+			"vector": "cpp",
+			"optional": "cpp",
+			"random": "cpp",
+			"system_error": "cpp",
+			"tuple": "cpp",
+			"type_traits": "cpp"
 		}
 	}
 }

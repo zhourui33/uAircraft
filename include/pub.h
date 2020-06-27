@@ -5,6 +5,7 @@
 #define FAILED 1
 
 #define Pos int
+#define LOOP_N(exp, n) do{for(int i=0;i<n;i++){exp;}}while(0);
 
 enum Direct{N, E, S, W};
 Direct operator++(Direct& d);

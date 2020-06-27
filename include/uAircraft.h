@@ -2,16 +2,7 @@
 
 #include "pub.h"
 #include "position.h"
-
-class Commander
-{
-    public:
-    Commander(Position ipos):p(ipos){}
-    virtual void actionCommand(Command cmd) = 0;
-
-    protected:
-    Position p;
-};
+#include "commander.h"
 
 class UnmannedAircraft
 {
@@ -26,7 +17,11 @@ class UnmannedAircraft
         return this->p;
     }
     const Position& on(Command cmd);
-
+    const Position& on(Commander *cmd);
+    const Position& on(UP_N cmd);
+    const Position& on(DOWN_N cmd);
+    const Position& on(FORWARD_N cmd);
+    const Position& on(REPEAT cmd);
     private:
     Position p;
 };
