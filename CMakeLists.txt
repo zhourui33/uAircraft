@@ -1,10 +1,8 @@
-IF(WIN32)
 SET(TOOLCHAIN_DIR "C:/MinGW")
 SET(ENV{PATH} "${TOOLCHAIN_DIR}/bin;$ENV{PATH}")
 SET(CMAKE_FIND_ROOT_PATH ${TOOLCHAIN_DIR})
 SET(CMAKE_C_COMPILER ${TOOLCHAIN_DIR}/bin/gcc.exe)
 SET(CMAKE_CXX_COMPILER ${TOOLCHAIN_DIR}/bin/g++.exe)
-ENDIF()
 
 MACRO(source_group_by_dir source_files)
     SET(sgbd_cur_dir ${CMAKE_CURRENT_SOURCE_DIR})
@@ -23,19 +21,20 @@ MACRO(source_group_by_dir source_files)
 ENDMACRO(source_group_by_dir)
 
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 
-PROJECT(uAircraft)
+SET(PROJECT_NAME UnmannedAircraft)
+PROJECT(${PROJECT_NAME})
 
 SET(CMAKE_C_FLAGS "-std=c99 -O0 -g3 -Wall -fmessage-length=0")
 SET(CMAKE_CXX_FLAGS "-std=c++11 -O0 -g3 -Wall -fmessage-length=0")
 
-SET(CMAKE_VERBOSE_MAKEFILE OFF)
+SET(CMAKE_VERBOSE_MAKEFILE ON)
+SET(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+ENABLE_TESTING()
 
 INCLUDE_DIRECTORIES(
-    "include"
-    "test"
-    "lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
 
 FILE(GLOB_RECURSE all_files
@@ -50,9 +49,8 @@ test/*.C
 )
 
 source_group_by_dir(all_files)
-LINK_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/tools/lib")
+ADD_SUBDIRECTORY(3th/googletest EXCLUDE_FROM_ALL)
 ADD_EXECUTABLE(${PROJECT_NAME} ${all_files})
 
-IF(WIN32)
-#TARGET_LINK_LIBRARIES(${PROJECT_NAME} libgtest.a libmockcpp32.a pthread)
-ENDIF()
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} gtest_main gmock_main)
+ADD_TEST(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME})
