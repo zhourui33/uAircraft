@@ -1,4 +1,15 @@
 #include "uAircraft.h"
+#include "position.h"
+
+UnmannedAircraft::UnmannedAircraft()
+{
+    this->p = Position();
+}
+
+const Position& UnmannedAircraft::getPosition()
+{
+    return this->p;
+}
 
 const Position& UnmannedAircraft::on(Command cmd)
 {

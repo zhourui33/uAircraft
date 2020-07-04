@@ -7,15 +7,8 @@
 class UnmannedAircraft
 {
     public:
-    UnmannedAircraft()
-    {
-        this->p = Position();
-    }
-    UnmannedAircraft(Position ipos):p(ipos){}
-    const Position& getPosition()
-    {
-        return this->p;
-    }
+    UnmannedAircraft();
+    const Position& getPosition();
     const Position& on(Command cmd);
     const Position& on(Commander *cmd);
     const Position& on(UP_N cmd);

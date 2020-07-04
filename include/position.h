@@ -7,20 +7,15 @@
 class Position 
 {
     public:
-    Position():x(0),y(0),z(0),d(N){}
-    Position(Pos ix, Pos iy, Pos iz, Direct id):x(ix),y(iy),z(iz),d(id){}
+    Position();
+    Position(Pos ix, Pos iy, Pos iz, Direct id);
     bool operator==(const Position &pos) const;
-    bool operator!=(const Position &pos) const;
     void up(int n);
     void down(int n);
     void forward(int n);
     void left();
     void right();
     void round();
-    void show()
-    {
-        std::cout<<x<<y<<z<<d<<std::endl;
-    }
     private:
     Pos x,y,z;
     Direct d;
