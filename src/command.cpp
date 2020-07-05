@@ -1,9 +1,11 @@
 #include "command.h"
+#include "coordinate.h"
+#include "orientation.h"
 #include "base/Singleton.h"
 
 Command& Commands::up()
 {
-    DEF_SINGLETON(UpCommand), Command
+    DEF_SINGLETON(UpCommand)EXTENDS(Command)
     {
         private:
         virtual void execute(Coordinate& coor, Orientation&) const
@@ -16,7 +18,7 @@ Command& Commands::up()
 
 Command& Commands::down()
 {
-    DEF_SINGLETON(DownCommand), Command
+    DEF_SINGLETON(DownCommand)EXTENDS(Command)
     {
         private:
         virtual void execute(Coordinate& coor, Orientation&) const
@@ -29,7 +31,7 @@ Command& Commands::down()
 
 Command& Commands::forward()
 {
-    DEF_SINGLETON(ForwardCommand), Command
+    DEF_SINGLETON(ForwardCommand)EXTENDS(Command)
     {
         private:
         virtual void execute(Coordinate& coor, Orientation& ori) const
@@ -42,7 +44,7 @@ Command& Commands::forward()
 
 Command& Commands::left()
 {
-    DEF_SINGLETON(LeftCommand), Command
+    DEF_SINGLETON(LeftCommand)EXTENDS(Command)
     {
         private:
         virtual void execute(Coordinate&, Orientation& ori) const

@@ -1,6 +1,4 @@
 #include "uAircraft.h"
-#include "position.h"
-#include "orientation.h"
 #include "command.h"
 
 UnmannedAircraft::UnmannedAircraft():pos(0,0,0,N)

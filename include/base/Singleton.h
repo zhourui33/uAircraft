@@ -14,5 +14,6 @@ struct Singleton
 };
 
 #define DEF_SINGLETON(object) struct object : Singleton<object>
+#define EXTENDS(object) ,object
 
 #endif

@@ -1,7 +1,8 @@
 #ifndef _COMMAND_H_
 #define _COMMAND_H_
 
-#include "position.h"
+struct Coordinate;
+struct Orientation;
 
 struct Command
 {

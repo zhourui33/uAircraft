@@ -2,7 +2,7 @@
 #define _UNMANNEDAIRCRAFT_H_
 
 #include "position.h"
-#include "command.h"
+struct Command;
 
 struct UnmannedAircraft
 {
