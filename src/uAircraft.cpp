@@ -10,7 +10,7 @@ const Position& UnmannedAircraft::getPosition()
     return pos;
 }
 
-const Position& UnmannedAircraft::on(Command& cmd)
+const Position& UnmannedAircraft::on(const Command& cmd)
 {
     cmd.execute(pos.ROLE(Coordinate), pos.ROLE(Orientation));
     return pos;

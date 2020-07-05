@@ -8,7 +8,7 @@ struct UnmannedAircraft
 {
     UnmannedAircraft();
     const Position& getPosition();
-    const Position& on(Command& cmd);
+    const Position& on(const Command& cmd);
     private:
     Position pos;
 };

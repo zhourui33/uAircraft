@@ -7,7 +7,7 @@
 
 struct Position : Coordinate, Orientation
 {
-    Position(int x, int y, int z, const Orientation& d);
+    Position(const int x, const int y, const int z, const Orientation& d);
     bool operator==(const Position &rhs) const;
 
     IMPL_ROLE(Coordinate);
