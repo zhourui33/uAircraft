@@ -1,24 +1,17 @@
 #ifndef _POSITION_H_
 #define _POSITION_H_
 
-#include <iostream>
-#include "pub.h"
+#include "orientation.h"
+#include "coordinate.h"
+#include "base/Role.h"
 
-class Position 
+struct Position : Coordinate, Orientation
 {
-    public:
-    Position();
-    Position(Pos ix, Pos iy, Pos iz, Direct id);
-    bool operator==(const Position &pos) const;
-    void up(int n);
-    void down(int n);
-    void forward(int n);
-    void left();
-    void right();
-    void round();
-    private:
-    Pos x,y,z;
-    Direct d;
+    Position(int x, int y, int z, const Orientation& d);
+    bool operator==(const Position &rhs) const;
+
+    IMPL_ROLE(Coordinate);
+    IMPL_ROLE(Orientation);
 };
 
 #endif

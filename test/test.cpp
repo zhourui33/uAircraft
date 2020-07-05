@@ -1,5 +1,8 @@
 #include <gtest/gtest.h>
 #include "uAircraft.h"
+#include "orientation.h"
+#include "position.h"
+#include "command.h"
 
 TEST(unmanedAircraft, should_init_at_0_0_0_N) 
 {
@@ -22,19 +25,24 @@ TEST(unmanedAircraft, should_position_forward_a_step_given_aircraft_at_origin)
 {
 	ASSERT_TRUE(Position(0, 1, 0, N) == UnmannedAircraft().on(FORWARD));
 }
+
 TEST(unmanedAircraft, should_position_turn_west_given_aircratf_at_origin)
 {
 	ASSERT_TRUE(Position(0, 0, 0, W) == UnmannedAircraft().on(LEFT));
 }
+
 TEST(unmanedAircraft, should_position_turn_east_given_aircratf_at_origin)
 {
 	ASSERT_TRUE(Position(0, 0, 0, E) == UnmannedAircraft().on(RIGHT));
 	
 }
+
 TEST(unmanedAircraft, should_position_turn_south_given_aircratf_at_origin)
 {
 	ASSERT_TRUE(Position(0, 0, 0, S) == UnmannedAircraft().on(ROUND));
 }
+
+
 TEST(unmanedAircraft, should_position_y_equal_10_when_forward_10_given_aicraft_at_origin)
 {
 	ASSERT_TRUE(Position(0, 10, 0, N) == UnmannedAircraft().on(FORWARD_N(10)));
